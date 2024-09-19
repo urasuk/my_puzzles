@@ -116,7 +116,8 @@ class JigsawWidgetState extends State<JigsawWidget> {
     if (pngBytes == null) {
       throw InvalidImageException();
     }
-    return ui.decodeImage(List<int>.from(pngBytes));
+    // return ui.decodeImage(List<int>.from(pngBytes));
+    return ui.decodeImage(pngBytes);
   }
 
   void reset() {
@@ -181,10 +182,10 @@ class JigsawWidgetState extends State<JigsawWidget> {
 
         final ui.Image temp = ui.copyCrop(
           fullImage!,
-          xAxis.round(),
-          yAxis.round(),
-          widthPerBlockTemp.round(),
-          heightPerBlockTemp.round(),
+          x: xAxis.round(),
+          y: yAxis.round(),
+          width: widthPerBlockTemp.round(),
+          height: heightPerBlockTemp.round(),
         );
 
         final Offset offset = Offset(size!.width / 2 - widthPerBlockTemp / 2,
